@@ -1,4 +1,4 @@
-package com.example.springboothelloworld;
+package com.example.helloworld.servlet;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

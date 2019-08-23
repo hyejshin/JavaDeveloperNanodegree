@@ -1,4 +1,4 @@
-package com.example.springboothelloworld;
+package com.example.helloworld.servlet;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

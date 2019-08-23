@@ -1,4 +1,4 @@
-package com.example.springboothelloworld;
+package com.example.helloworld.servlet;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
