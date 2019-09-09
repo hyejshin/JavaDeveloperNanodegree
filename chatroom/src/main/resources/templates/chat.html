@@ -93,7 +93,6 @@
             console.log('WebSocket Receives：%c' + event.data, 'color:green');
             //Receive Message from Server
             var message = JSON.parse(event.data) || {};
-            alert(message.content);
             var $messageContainer = $('.message-container');
             if (message.type === 'SPEAK') {
                 $messageContainer.append(
@@ -131,7 +130,7 @@
     function sendMsgToServer() {
         var $message = $('#msg');
         if ($message.val()) {
-            webSocket.send(JSON.stringify({username: $('#username').text(), msg: $message.val()}));
+            webSocket.send(JSON.stringify({username: $('#username').text(), content: $message.val()}));
             $message.val(null);
         }
     }

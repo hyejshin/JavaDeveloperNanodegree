@@ -121,7 +121,7 @@
             <input id="username" name="username" class="text" type="text" placeholder="Username">
         </div>
         <div class="mb2">
-            <a class="act-but submit" onclick="login()">Login</a>
+            <a class="act-but submit" onclick="submit">Login</a>
         </div>
     </form>
 </div>
@@ -132,17 +132,16 @@
      */
     function login() {
         // TODO: complete the login function
-        var username = document.getElementById("username").value;
-        alert("Welcome, " + username);
-        document.loginForm.submit();
+        //var username = document.getElementById("username").value;
+        //document.loginForm.submit();
     }
     /**
      * Enter to login.
-     */
     document.onkeydown = function (event) {
         var e = event || window.event || arguments.callee.caller.arguments[0];
         e.keyCode === 13 && login();
     };
+     */
 </script>
 
 
