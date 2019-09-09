@@ -4,13 +4,10 @@ import com.alibaba.fastjson.JSON;
 import org.springframework.stereotype.Component;
 
 import javax.websocket.*;
-import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArraySet;
 
 /**
  * WebSocket Server
@@ -68,7 +65,7 @@ public class WebSocketChatServer {
     public void onClose(Session session) {
         //TODO: add close connection.
         onlineSessions.remove(session.getId());
-        sendMessageToAll(Message.jsonConverter("QUIT", "", "", onlineSessions.size()));
+        sendMessageToAll(Message.jsonConverter("LEAVE", "", "", onlineSessions.size()));
     }
 
     /**
