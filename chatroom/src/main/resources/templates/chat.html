@@ -93,13 +93,13 @@
             console.log('WebSocket Receives：%c' + event.data, 'color:green');
             //Receive Message from Server
             var message = JSON.parse(event.data) || {};
-            alert(message.msg);
+            alert(message.content);
             var $messageContainer = $('.message-container');
             if (message.type === 'SPEAK') {
                 $messageContainer.append(
                     '<div class="mdui-card" style="margin: 10px 0;">' +
                     '<div class="mdui-card-primary">' +
-                    '<div class="mdui-card-content message-content">' + message.username + "：" + message.msg + '</div>' +
+                    '<div class="mdui-card-content message-content">' + message.username + "：" + message.content + '</div>' +
                     '</div></div>');
             }
             $('.chat-num').text(message.onlineCount);
