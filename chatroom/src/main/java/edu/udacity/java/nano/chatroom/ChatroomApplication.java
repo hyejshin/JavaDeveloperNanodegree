@@ -23,7 +23,7 @@ public class ChatroomApplication {
 	 */
 	@GetMapping("/")
 	public ModelAndView login() {
-		return new ModelAndView("/login");
+		return new ModelAndView("login");
 	}
 
 	/**
