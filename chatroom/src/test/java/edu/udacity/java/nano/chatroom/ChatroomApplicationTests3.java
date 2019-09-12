@@ -1,5 +1,6 @@
 package edu.udacity.java.nano.chatroom;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,23 +9,35 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class ChatroomApplicationTests3 {
-    WebDriver driver;
+    private WebDriver driver;
 
-    @Test
-    public void init() {
-        System.setProperty("webdriver.chrome.driver", "C:/Users/shins/Documents/chromedriver.exe");
+    @BeforeClass
+    public static void setupClass() {
+        WebDriverManager.chromedriver().setup();
+    }
+
+    @BeforeTest
+    public void beforeTest() {
         driver = new ChromeDriver();
+    }
+
+    @AfterTest
+    public void teardown() {
+        if (driver != null) {
+            //driver.quit();
+        }
     }
 
     @Test
     public void loginTes() {
+        driver = new ChromeDriver();
         driver.get("http://localhost:8080");
         WebElement inputElement = driver.findElement(By.name("username"));
         inputElement.sendKeys("Jenny");

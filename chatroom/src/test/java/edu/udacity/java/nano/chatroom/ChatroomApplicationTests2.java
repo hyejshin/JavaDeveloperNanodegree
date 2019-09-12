@@ -1,5 +1,6 @@
 package edu.udacity.java.nano.chatroom;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,6 +9,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
@@ -15,17 +18,20 @@ import java.util.concurrent.TimeUnit;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class ChatroomApplicationTests2 {
-    WebDriver driver;
+    private WebDriver driver;
 
-    @Test
-    public void init() {
-        System.setProperty("webdriver.chrome.driver", "C:/Users/shins/Documents/chromedriver.exe");
+    @BeforeClass
+    public static void setupClass() {
+        WebDriverManager.chromedriver().setup();
+    }
+
+    @BeforeTest
+    public void beforeTest() {
         driver = new ChromeDriver();
     }
 
     @Test
     public void loginTest() {
-        //init();
         driver.get("http://localhost:8080");
         WebElement inputElement = driver.findElement(By.name("username"));
         inputElement.sendKeys("HyeJung");
@@ -33,7 +39,6 @@ public class ChatroomApplicationTests2 {
         inputElement.submit();
         WebElement usernameElement = driver.findElement(By.id("username"));
         Assert.assertEquals(usernameElement.getText(), "HyeJung");
-        //driver.quit();
     }
 
     @Test
