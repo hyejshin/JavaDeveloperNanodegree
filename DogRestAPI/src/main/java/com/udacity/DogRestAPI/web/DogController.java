@@ -42,4 +42,11 @@ public class DogController {
         List<String> list = dogService.retrieveDogNames();
         return new ResponseEntity<List<String>>(list, HttpStatus.OK);
     }
+
+    @GetMapping("/{id}/dog")
+    public ResponseEntity<String> getDogById(@PathVariable Long id) {
+        System.out.println(id);
+        String dog = dogService.retrieveDogById(id);
+        return new ResponseEntity<String>(dog, HttpStatus.OK);
+    }
 }
