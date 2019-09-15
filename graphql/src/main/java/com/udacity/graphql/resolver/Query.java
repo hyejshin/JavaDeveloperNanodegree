@@ -35,10 +35,6 @@ public class Query implements GraphQLQueryResolver {
         return dogRepository.findAllBreed();
     }
 
-    public String findDogBreedsById() {
-        return dogRepository.findBreedById();
-    }
-
     public List<String> findDogNames() {
         return dogRepository.findAllName();
     }

@@ -8,7 +8,8 @@ type Dog {
 type Query {
  findAllDogs: [Dog]!
  findDogById(id:ID!): Dog!
-
+ findDogBreeds: [String]!
+ findDogNames: [String]!
 }
 
 type Mutation {
