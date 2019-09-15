@@ -1,0 +1,17 @@
+http://localhost:8080/graphiql
+
+{
+  findAllDogs {
+    id
+    name
+    breed
+  }
+}
+
+mutation {
+  updateDogName(newName: "Lady Gaga", id: 4) {
+    id
+    name
+    breed
+  }
+}
