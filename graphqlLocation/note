@@ -1,0 +1,10 @@
+Controller - LocationController.java
+Service - LocationService.java and LocationServiceImpl.java
+CRUD Repository - LocationRepository.java
+Domain Entity/Model - Location.java
+Schema - location.graphqls and via the GraphiQL console at http://localhost:8080/graphql/schema.json.
+Mutator - Mutation.java
+Query - Query.java
+H2 Database accessible via http://localhost:8080/h2/
+Tomcat Server accessible via http://localhost:8080
+GraphiQL console accessible via http://localhost:8080/graphiql
