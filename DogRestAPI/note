@@ -1,0 +1,4 @@
+Swagger Config - SwaggerConfig.java
+H2 Database accessible via http://localhost:8080/h2/
+Tomcat Server accessible via http://localhost:8080
+Swagger UI via http://localhost:8080/swagger-ui.html
