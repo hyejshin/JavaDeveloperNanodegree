@@ -27,10 +27,15 @@ public class DogServiceImpl implements DogService {
         return breed;
     }
 
-    public String retrieveDogById(Long id) {
-        Optional<String> optionalDog = Optional.ofNullable(dogRepository.findDogById(id));
-        String dog = optionalDog.orElseThrow(DogNotFoundException::new);
-        return dog;
+    public Dog retrieveDogById(Long id) {
+        //Optional<Dog> optionalDog = Optional.ofNullable(dogRepository.findDogById(id));
+        //String dog = optionalDog.orElseThrow(DogNotFoundException::new);
+        Optional<Dog> optionalDog = dogRepository.findById(id);
+
+        if(optionalDog.isPresent())
+            return optionalDog.get();
+        else
+            throw new RuntimeException();
     }
 
     public List<String> retrieveDogNames() {
