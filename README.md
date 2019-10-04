@@ -2,9 +2,9 @@
 
 Udacity Java Developer Nanodegree
 https://classroom.udacity.com/nanodegrees/nd035
-https://start.spring.io/
 
-exercises and projects
+I built this exercises and projects using https://start.spring.io/
+
 
 =======================================================
 
