@@ -1,0 +1,48 @@
+Simple MongoDB Syntax
+Create User, Create Table, Insert, Update, Delete, Find
+
+db.createUser({"user": "course3", "pwd": "course3", "roles":["readWrite", "dbAdmin"]})
+
+db.createCollection('member')
+
+db.member.insert({
+    "_id": "shin",
+    "first_name": "Jenny",
+    "last_name": "Shin",
+    "gender": "male",
+    "age": 23,
+    "address": {
+        "street": "123 Main Street",
+        "city": "Oakland",
+        "state": "CA"
+    },
+    "interests": ["pilates","swim","tennis"],
+    "balance": 125.20
+})
+
+db.member.find().pretty()
+
+db.member.update({last_name: "Shin"}, {$set: {gender: "female"}})
+
+db.member.updateMany({}, {$rename: {'gender': 'sex'}})
+
+db.member.remove({_id: "sshin"})
+
+db.member.deleteOne({sex: "male"})
+
+db.member.remove({sex: "male"}, 1)
+
+db.member.find({last_name: "Shin"}).pretty()
+
+db.member.find({sex: "male"}).sort({first_name:1}).pretty() //-1: descending order
+
+db.member.find({sex: "male"}).count()
+
+db.member.find({sex: "male"}).limit(1).pretty()
+
+db.member.remove({})
+
+===============================================================================
+db.members.find({"address.state": "MN"}).pretty()
+
+db.inventory.find({"instock.qty": { $gt: 10,  $lte: 20 } })
